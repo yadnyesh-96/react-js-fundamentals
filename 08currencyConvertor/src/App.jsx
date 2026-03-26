@@ -5,7 +5,9 @@ function App() {
 
   return (
     <>
-    <div className=''></div>
+    <div className='w-full h-screen flex-wrap justify-center items-center  bg-cover bg-no-repeat'>
+      
+    </div>
     </>
   )
 }
