@@ -1,11 +1,27 @@
-// import { useState } from 'react'
+
 import useInput from "./hooks/useInput";
+import useFetch from "./hooks/useFetch";
+
 
 function App() {
-  const name = useInput("");
-  const email = useInput("");
+  const { data, loading, error } = useFetch("https://jsonplaceholder.typicode.com/users")
+  // const name = useInput("");
+  // const email = useInput("");
   return (
     <>
+      <div className="p-10">
+        <h1 className="text-2xl font-bold mb-4">Users</h1>
+        <div className="border border-slate-300"></div>
+        {loading && <p>Loading...</p>}
+        {error && <p className="text-red-500">{error}</p>}
+        <ul>
+          {data &&
+          data.map((user)=>(
+            <li key={user.id} className="border-b px-2 mb-2">{user.name}</li>
+          ))}
+        </ul>
+      </div>
+      {/*     
       <div className="grid place-items-center h-screen bg-slate-50 p-5">
         <form onSubmit={(e) => e.preventDefault()} className="w-full max-w-sm flex flex-col gap-4 bg-white p-8 rounded-xl shadow-sm border border-slate-200">
           <h2 className="text-2xl font-semibold text-slate-800 mb-2">User Profile</h2>
@@ -30,6 +46,7 @@ function App() {
           </div>
         </form>
       </div>
+     */}
     </>
   )
 }
