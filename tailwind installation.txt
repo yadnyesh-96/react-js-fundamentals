@@ -1,16 +1,41 @@
-step - 1:
---> npm install -D tailwindcss postcss autoprefixer
+✅ Step 2: Install stable version (v3)
+npm install -D tailwindcss@3 postcss autoprefixer
+✅ Step 3: Initialize config
+npx tailwindcss init -p
 
-step - 2:
---> npm install @tailwindcss/vite
+✅ Step 4: Replace configs
+tailwind.config.js
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,jsx,ts,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
 
 
-stpe - 3:
---> Update vite.config.js
-    import { defineConfig } from 'vite'
-    import react from '@vitejs/plugin-react'
-    import tailwindcss from '@tailwindcss/vite'
+postcss.config.js
 
-    export default defineConfig({
-         plugins: [react(), tailwindcss()],
-    })
+export default {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+}
+
+
+✅ Step 5: Fix CSS
+
+index.css
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+✅ Step 6: Restart everything
+npm run dev
