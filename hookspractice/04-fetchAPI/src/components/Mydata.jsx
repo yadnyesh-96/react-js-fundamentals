@@ -33,7 +33,7 @@ function Mydata() {
     }, [])
 
     return (
-        <div className="flex flex-col items-center p-10 justify-center h-screen border border-slate-500">
+        <div className="flex flex-col items-center p-10 justify-center h-screen">
             <div className="flex items-center justify-between w-full m-5 p-2 border-b border-slate-700 ">
                 <h2 className="text-2xl font-bold text-slate-700">Users List</h2>
                 <button className="border-2 border-yellow-700 bg-yellow-500 px-4 rounded-md text-white font-semibold shadow-md" onClick={fetchUsers}>Refersh</button>
@@ -42,9 +42,9 @@ function Mydata() {
                 {loading && <p>Loading...</p>}
                 {error && <p className="text-red-600">{error}</p>}
                 {!loading && !error && (
-                    <ul>
+                    <ul className="w-full">
                         {users.map((u) => (
-                            <li key={u.id}>{u.name} - {u.email}</li>
+                            <li className="flex  justify-between w-full border-b border-slate-200 py-1 mx-2" key={u.id}>{u.id}<p className="w-full text-slate-500 text-sm">. {u.name}-{u.address.geo.lat}</p><p className="w-full text-slate-500 text-sm">{u.email}</p></li>
                         ))}
                     </ul>
                 )}
