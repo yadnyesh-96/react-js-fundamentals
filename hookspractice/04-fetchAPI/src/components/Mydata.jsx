@@ -19,7 +19,7 @@ function Mydata() {
 
             const data = await response.json();
             setUsers(data);
-
+ 
         } catch (err) {
             setError(err.message);
         } finally {
