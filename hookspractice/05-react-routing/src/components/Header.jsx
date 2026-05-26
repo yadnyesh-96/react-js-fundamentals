@@ -13,7 +13,7 @@ function Header() {
                     }
                 >
                     Home</NavLink>
-            </li>
+            </li> 
             <li className="list-none">
                 <NavLink
                     to="/about"
