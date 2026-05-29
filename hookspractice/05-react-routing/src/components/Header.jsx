@@ -10,7 +10,7 @@ function Header() {
                     to="/"
                     className={({ isActive }) =>
                         `${isActive ? "text-red-500" : "text-slate-500"}  text-xl font-bold`
-                    } 
+                    }
                 >
                     Home</NavLink>
             </li>
