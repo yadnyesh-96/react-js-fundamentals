@@ -1,6 +1,5 @@
 import { NavLink } from "react-router-dom";
 
-
 function Header() {
     return (
         <div className="flex flex-row justify-evenly py-2 px-10 border border-red-400 m-2 rounded-md bg-slate-100">
