@@ -24,7 +24,6 @@ function Header() {
                     About</NavLink></li>
             <li className="list-none">Services</li>
             <li className="list-none">Contact-us</li>
-
         </div>
     )
 }
