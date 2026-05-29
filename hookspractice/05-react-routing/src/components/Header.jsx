@@ -12,7 +12,7 @@ function Header() {
                         `${isActive ? "text-red-500" : "text-slate-500"}  text-xl font-bold`
                     }
                 >
-                    Home</NavLink>
+                Home</NavLink>
             </li>
             <li className="list-none">
                 <NavLink
