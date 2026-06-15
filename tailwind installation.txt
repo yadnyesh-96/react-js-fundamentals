@@ -39,3 +39,13 @@ index.css
 
 ✅ Step 6: Restart everything
 npm run dev
+
+
+Here is your key: 6cebdc46
+
+Please append it to all of your API requests,
+
+OMDb API: http://www.omdbapi.com/?i=tt3896198&apikey=6cebdc46
+
+Click the following URL to activate your key: http://www.omdbapi.com/apikey.aspx?VERIFYKEY=4fde583d-04af-4d9d-8e98-3d32590fda27
+If you did not make this request, please disregard this email.
