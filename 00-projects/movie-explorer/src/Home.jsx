@@ -29,7 +29,6 @@ function Home() {
                     className="border p-2 rounded-sm text-sm font-medium"
                     placeholder="Serach Movies Here"
                 />
-
                 <button
                     onClick={loadMovies}
                     className="border mx-2 p-1 px-2 rounded-sm font-bold bg-amber-200"
