@@ -9,7 +9,7 @@ function MovieCard({ movie }) {
                     alt={movie.Title}
                 />
                 <h2 className="font-bold mt-2">{movie.Title}</h2>
-                <p className="font-bold">{movie.year}</p>
+                <p className="font-bold">{movie.Year}</p>
             </div>
         </Link>
     )
