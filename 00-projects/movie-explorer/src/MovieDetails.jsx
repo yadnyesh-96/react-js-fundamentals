@@ -1,9 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { serachMovieDetails } from "../service/movieApi";
 
 function MovieDetails() {
     const { id } = useParams();
     const [movie, setMovie] = useState(null);
+
+    useEffect(() => {
+        loadMovie();
+    }, [id]);
+
+    async function loadMovie() {
+
+        const data = await serachMovieDetails(id);
+        setMovie(data);
+    }
+
 
     if (!movie) {
         return <h1>Loading...</h1>;
@@ -21,15 +33,15 @@ function MovieDetails() {
                 {movie.Title}
             </h1>
 
-            <p>Year: {movie.Year}</p>
+            <div><p className="font-bold text-amber-500">Year: </p> <p>{movie.Year}</p></div>
 
-            <p>IMDb Rating: {movie.imdbRating}</p>
+            <div><p className="font-bold text-amber-500">IMDb Rating: </p> <p>{movie.imdbRating}</p></div>
 
-            <p>Genre: {movie.Genre}</p>
+            <div><p className="font-bold text-amber-500">Genre: </p> <p>{movie.Genre}</p></div>
 
-            <p>Director: {movie.Director}</p>
+            <div><p className="font-bold text-amber-500">Director: </p> <p>{movie.Director}</p></div>
 
-            <p>Actors: {movie.Actors}</p>
+            <div><p className="font-bold text-amber-500">Actors: </p> <p>{movie.Actors}</p></div>
 
             <p className="mt-4">
                 {movie.Plot}
