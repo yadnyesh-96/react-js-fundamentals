@@ -5,6 +5,8 @@ import { serachMovieDetails } from "../service/movieApi";
 function MovieDetails() {
     const { id } = useParams();
     const [movie, setMovie] = useState(null);
+    const [Loading, serLoasding] = useState(false);
+    const [error, setError] = useState("");
 
     useEffect(() => {
         loadMovie();

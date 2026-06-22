@@ -6,8 +6,7 @@ function Home() {
 
     const [search, setSearch] = useState("batman");
     const [movies, setMovies] = useState([]);
-    const [Loading, serLoasding] = useState(false);
-    const [error, setError] = useState("");
+   
 
     useEffect(() => {
         loadMovies();
