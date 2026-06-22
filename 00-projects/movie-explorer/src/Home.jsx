@@ -26,6 +26,11 @@ function Home() {
                     id=""
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
+                    onKeyDown={(e) =>{
+                        if(e.key === "Enter"){
+                            loadMovies();
+                        }
+                    }}
                     className="border p-2 rounded-sm text-sm font-medium"
                     placeholder="Serach Movies Here"
                 />
