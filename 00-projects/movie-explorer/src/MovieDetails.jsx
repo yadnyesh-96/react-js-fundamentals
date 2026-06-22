@@ -5,7 +5,7 @@ import { serachMovieDetails } from "../service/movieApi";
 function MovieDetails() {
     const { id } = useParams();
     const [movie, setMovie] = useState(null);
-    const [Loading, serLoasding] = useState(false);
+    const [Loading, setLoading] = useState(false);
     const [error, setError] = useState("");
 
     useEffect(() => {
@@ -14,11 +14,41 @@ function MovieDetails() {
 
     async function loadMovie() {
 
-        const data = await serachMovieDetails(id);
-        setMovie(data);
+        try {
+            setLoading(true);
+            setError("");
+            const data = await serachMovieDetails(id);
+
+            if (data.Response === "False") {
+                setError(data.Error);
+                return;
+            }
+
+            setMovie(data);
+        } catch (err) {
+            setError("Failed to load movie details");
+        } finally {
+            setLoading(false);
+        }
+
     }
 
-
+    if (Loading) {
+        return (
+            <h1 className="text-center text-2xl">
+                Loading Movie Details...
+            </h1>
+        );
+    }
+    if (error) {
+        return (
+            <div className="text-center mt-10">
+                <h1 className="text-red-500 text-2xl font-bold">
+                    {error}
+                </h1>
+            </div>
+        );
+    }
     if (!movie) {
         return <h1>Loading...</h1>;
     }
