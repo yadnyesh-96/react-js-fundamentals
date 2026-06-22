@@ -6,25 +6,44 @@ function Home() {
 
     const [search, setSearch] = useState("batman");
     const [movies, setMovies] = useState([]);
-   
+    const [error, setError] = useState("");
 
     useEffect(() => {
         loadMovies();
-    }, [])
+    }, []);
 
     async function loadMovies() {
+
+        if (!search.trim()) {
+            setError("Please enter a movie name.");
+            setMovies([]);
+            return;
+        }
+
+        setError("");
+
         const data = await searchMovies(search);
-        setMovies(data);
+
+        if (data.Response === "False") {
+            setError(data.Error);
+            setMovies([]);
+            return;
+        }
+
+        setMovies(data.Search);
     }
 
     return (
         <div className="p-6">
+
             <div className="w-full my-5">
-                <h1 className="text-3xl font-bold mb-6">Movie Explorer</h1>
+
+                <h1 className="text-3xl font-bold mb-6">
+                    Movie Explorer
+                </h1>
+
                 <input
                     type="text"
-                    name=""
-                    id=""
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
                     onKeyDown={(e) => {
@@ -33,25 +52,37 @@ function Home() {
                         }
                     }}
                     className="border p-2 rounded-sm text-sm font-medium"
-                    placeholder="Serach Movies Here"
+                    placeholder="Search Movies Here"
                 />
+
                 <button
                     onClick={loadMovies}
                     className="border mx-2 p-1 px-2 rounded-sm font-bold bg-amber-200"
                 >
                     Search
                 </button>
+
             </div>
+
+            {error && (
+                <div className="bg-red-100 border border-red-400 text-red-700 p-3 rounded mb-4">
+                    {error}
+                </div>
+            )}
+
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
+
                 {movies.map((movie) => (
                     <MovieCard
                         key={movie.imdbID}
                         movie={movie}
-                    />))
-                }
+                    />
+                ))}
+
             </div>
+
         </div>
-    )
+    );
 }
 
 export default Home;
