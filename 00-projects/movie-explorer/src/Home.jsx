@@ -6,6 +6,8 @@ function Home() {
 
     const [search, setSearch] = useState("batman");
     const [movies, setMovies] = useState([]);
+    const [Loading, serLoasding] = useState(false);
+    const [error, setError] = useState("");
 
     useEffect(() => {
         loadMovies();
@@ -26,8 +28,8 @@ function Home() {
                     id=""
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
-                    onKeyDown={(e) =>{
-                        if(e.key === "Enter"){
+                    onKeyDown={(e) => {
+                        if (e.key === "Enter") {
                             loadMovies();
                         }
                     }}
