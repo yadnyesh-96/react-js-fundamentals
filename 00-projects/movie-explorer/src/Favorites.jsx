@@ -12,6 +12,7 @@ function Favorite() {
 
         setFavorites(savedFavorites);
     }, []);
+    
     return (
         <>
             <div className="p-6">
