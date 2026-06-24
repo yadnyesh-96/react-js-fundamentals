@@ -1,6 +1,28 @@
 import { Link } from "react-router-dom";
 
 function MovieCard({ movie }) {
+
+    function handleFavorite(e) {
+        e.preventDefault();
+        const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+        const alreadyExists = favorites.some(
+            fav => fav.imdbID === movie.imdbID
+        );
+
+        if (!alreadyExists) {
+            favorites.push(movie);
+
+            localStorage.setItem(
+                "favorites", JSON.stringify(favorites)
+            );
+
+            alert("Added to Favorites");
+        } else {
+            alert("Movie already in Favorites");
+        }
+    }
+
     return (
         <Link to={`/movie/${movie.imdbID}`}>
             <div className="border rounded-lg p-6 shadow">
@@ -19,23 +41,6 @@ function MovieCard({ movie }) {
             </div>
         </Link>
     )
-}
-
-function handleFavorite(e) {
-    e.prventDefault();
-    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-
-    const alreadyExists = favorites.some(
-        fav => fav.imdbID === movie.imdbID
-    );
-
-    if (!alreadyExists) {
-        favorites.push(movie);
-
-        localStorage.setItem(
-            "favorites", JSON.stringify(favorites)
-        );
-    }
 }
 
 export default MovieCard;
