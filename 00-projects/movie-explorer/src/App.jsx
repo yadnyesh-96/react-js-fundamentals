@@ -20,7 +20,7 @@ function App() {
         <Route path="/movie/:id" element={<MovieDetails />} />
         <Route path="/favorite" element={<Favorite />} />
       </Routes>
-      
+      <Test show={true} />
       <Footer />
     </>
 
