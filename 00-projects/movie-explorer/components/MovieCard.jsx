@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import MovieDetails from "./MovieDetails";
 
 function MovieCard({ movie }) {
 
@@ -38,6 +39,15 @@ function MovieCard({ movie }) {
                 >
                     ❤️ Favorite
                 </button>
+
+                <button
+                    onClick={MovieDetails}
+                    className="mt-2 bg-red-500 text-white px-3 py-1 rounded"
+                >
+                    Show Details
+                </button>
+
+                <MovieDetails movie={movie} />
             </div>
         </Link>
     )
