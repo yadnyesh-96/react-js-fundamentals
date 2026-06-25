@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import MovieDetails from "./MovieDetails";
+
 
 function MovieCard({ movie }) {
 
@@ -25,31 +25,26 @@ function MovieCard({ movie }) {
     }
 
     return (
-        <Link to={`/movie/${movie.imdbID}`}>
-            <div className="border rounded-lg p-6 shadow">
-                <img
-                    src={movie.Poster}
-                    alt={movie.Title}
-                />
-                <h2 className="font-bold mt-2">{movie.Title}</h2>
-                <p className="font-bold">{movie.Year}</p>
-                <button
-                    onClick={handleFavorite}
-                    className="mt-2 bg-red-500 text-white px-3 py-1 rounded"
-                >
-                    ❤️ Favorite
-                </button>
 
-                <button
-                    onClick={MovieDetails}
-                    className="mt-2 bg-red-500 text-white px-3 py-1 rounded"
-                >
-                    Show Details
-                </button>
+        <div className="border rounded-lg p-6 shadow">
+            <img
+                src={movie.Poster}
+                alt={movie.Title}
+            />
+            <h2 className="font-bold mt-2">{movie.Title}</h2>
+            <p className="font-bold">{movie.Year}</p>
+            <button
+                onClick={handleFavorite}
+                className="mt-2 bg-red-500 text-white px-3 py-1 rounded"
+            >
+                ❤️ Favorite
+            </button>
 
-                <MovieDetails movie={movie} />
-            </div>
-        </Link>
+            <Link to={`/movie/${movie.imdbID}`}>
+                <button className="border-2 bg-amber-500 text-blue-50 mx-5 py-1 px-3 rounded">Details</button>
+            </Link>
+        </div>
+
     )
 }
 
