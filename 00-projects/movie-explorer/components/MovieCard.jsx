@@ -39,7 +39,6 @@ function MovieCard({ movie }) {
             >
                 ❤️ Favorite
             </button>
-
             <Link to={`/movie/${movie.imdbID}`}>
                 <button className="border-2 bg-amber-500 text-blue-50 mx-5 py-1 px-3 rounded">Details</button>
             </Link>
