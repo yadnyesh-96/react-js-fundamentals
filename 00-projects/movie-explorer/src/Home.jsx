@@ -76,6 +76,8 @@ function Home() {
                     <MovieCard
                         key={movie.imdbID}
                         movie={movie}
+                        showFavorite ={true}
+                        showRemove ={false}
                     />
                 ))}
 

@@ -29,11 +29,11 @@ function Favorite() {
                 <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
                     {favorites.map((movie) => (
                         <div key={movie.imdbID}>
-                            <MovieCard movie={movie} />
-
-                            <button onClick={() => handleRemoveMov(movie.imdbID)}>
-                                Remove
-                            </button>
+                            <MovieCard
+                                movie={movie}
+                                showFavorite={false}
+                                showRemove={true}
+                                onRemove={handleRemoveMov} />
                         </div>
                     ))}
                 </div>
