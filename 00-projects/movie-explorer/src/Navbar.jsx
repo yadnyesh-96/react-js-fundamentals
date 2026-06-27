@@ -1,12 +1,30 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 
 function Navbar() {
     return (
-        <nav className="bg-amber-400 my-2 py-3 px-2 ">
-            <Link to="/" className="text-cyan-950 font-bold ">Home</Link>
-            <Link to="/movies">Movie</Link>
-            <Link to="/favorite">Favorite</Link>
+        <nav className="my-2 py-3 px-2 ps-5 flex justify-center-safe gap-10">
+            <NavLink
+                to="/"
+                className= {({ isActive }) => isActive ? "font-bold text-cyan-950" : "font-normal text-cyan-950"  
+                }>
+                Home
+            </NavLink>
+
+            <NavLink
+                to="/movies"
+                className={({ isActive }) => isActive ? "font-bold text-cyan-950" : "font-normal text-cyan-950"
+                }>
+                Movies
+            </NavLink>
+
+            <NavLink
+                to="/favorite"
+                className={({ isActive }) => isActive ? "font-bold text-cyan-950" : "font-normal text-cyan-950"
+                }>
+                Favorites
+            </NavLink>
+
         </nav>
 
     )

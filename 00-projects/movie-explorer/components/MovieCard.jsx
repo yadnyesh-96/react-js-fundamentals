@@ -1,23 +1,24 @@
 import { Link } from "react-router-dom";
+import { Heart, Star } from "lucide-react";
 
-
-function MovieCard({ movie, showFavorite = true, showRemove = false, onRemove }) {
-
+function MovieCard({
+    movie,
+    showFavorite = true,
+    showRemove = false,
+    onRemove,
+}) {
     function handleFavorite(e) {
         e.preventDefault();
+
         const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
         const alreadyExists = favorites.some(
-            fav => fav.imdbID === movie.imdbID
+            (fav) => fav.imdbID === movie.imdbID
         );
 
         if (!alreadyExists) {
             favorites.push(movie);
-
-            localStorage.setItem(
-                "favorites", JSON.stringify(favorites)
-            );
-
+            localStorage.setItem("favorites", JSON.stringify(favorites));
             alert("Added to Favorites");
         } else {
             alert("Movie already in Favorites");
@@ -25,43 +26,63 @@ function MovieCard({ movie, showFavorite = true, showRemove = false, onRemove })
     }
 
     return (
+        <Link to={`/movie/${movie.imdbID}`}>
+            <div className="w-60 bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 cursor-pointer">
 
-        <div className="border rounded-lg p-6 shadow">
-            <img
-                src={movie.Poster}
-                alt={movie.Title}
-            />
-            <h2 className="font-bold mt-2">{movie.Title}</h2>
-            <p className="font-bold">{movie.Year}</p>
+                {/* Poster */}
+                <div className="relative">
+                    <img
+                        src={movie.Poster}
+                        alt={movie.Title}
+                        className="w-full h-72 object-cover"
+                    />
 
-            {
-                showFavorite && (
-                    <button
-                        onClick={handleFavorite}
-                        className="mt-2 bg-red-500 text-white px-3 py-1 rounded"
-                    >
-                        ❤️ Favorite
-                    </button>
-                )
-            }
+                    {showFavorite && (
+                        <button
+                            onClick={handleFavorite}
+                            className="absolute top-3 right-3 bg-white rounded-full p-2 shadow-md hover:scale-110 transition"
+                        >
+                            <Heart
+                                size={18}
+                                className="text-red-500 fill-red-500"
+                            />
+                        </button>
+                    )}
+                </div>
 
-            {
-                showRemove && (
-                    <button
-                        onClick={() => onRemove(movie.imdbID)}
-                        className="mt-2 bg-red-500 text-white px-3 py-1 rounded"
-                    >
-                        X Remove
-                    </button>
-                )
-            }
+                {/* Movie Info */}
+                <div className="p-3">
+                    <h2 className="font-semibold text-gray-800 truncate">
+                        {movie.Title}
+                    </h2>
 
-            <Link to={`/movie/${movie.imdbID}`}>
-                <button className="border-2 bg-amber-500 text-blue-50 mx-5 py-1 px-3 rounded">Details</button>
-            </Link>
-        </div>
+                    <p className="text-gray-500 text-sm">
+                        {movie.Year}
+                    </p>
 
-    )
+                    <div className="flex items-center gap-1 mt-2">
+                        <Star
+                            size={16}
+                            className="text-yellow-400 fill-yellow-400"
+                        />
+                        <span className="font-semibold">8.7</span>
+                    </div>
+
+                    {showRemove && (
+                        <button
+                            onClick={(e) => {
+                                e.preventDefault();
+                                onRemove(movie.imdbID);
+                            }}
+                            className="mt-3 w-full bg-red-500 text-white py-2 rounded-lg hover:bg-red-600"
+                        >
+                            Remove
+                        </button>
+                    )}
+                </div>
+            </div>
+        </Link>
+    );
 }
 
 export default MovieCard;

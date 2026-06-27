@@ -13,9 +13,15 @@ function App() {
 
   return (
     <>
-     
-
-      <Card />
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/movies" element={<Movies />} />
+          <Route path="/movie/:id" element={<MovieDetails />} />
+          <Route path="/favorite" element={<Favorite />} />
+          <Route path="/card" element={<Card />} />
+        </Routes>
+      </Layout>
     </>
 
   )
