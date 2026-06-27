@@ -1,9 +1,9 @@
 
 
-function Card({ children }) {
+function Card() {
     return (
         <div className="border-2 rounded-lg p-6 shadow-lg m-4">
-            {children}
+            <h2>Ca</h2>
         </div>
     )
 }
