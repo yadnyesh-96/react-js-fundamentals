@@ -1,14 +1,14 @@
 import Users from "../components/Users"
-import 
+import './index.css'
 
 function App() {
 
   return (
-
-    <Users />
-
+    <>
+      <Users />
+    </>
   )
 
 }
 
-export default App
+export default App;
