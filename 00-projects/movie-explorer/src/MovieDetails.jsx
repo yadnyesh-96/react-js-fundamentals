@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { serachMovieDetails } from "../service/movieApi";
+import useMovie from "./hooks/useMovie";
 
 function MovieDetails() {
     const { id } = useParams();
-    const [movie, setMovie] = useState(null);
-    const [Loading, setLoading] = useState(false);
-    const [error, setError] = useState("");
+    
+    const {movie, Loading, error} = useMovie();
 
     useEffect(() => {
         loadMovie();
