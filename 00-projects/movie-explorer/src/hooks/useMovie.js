@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { serachMovieDetails } from "../service/movieApi";
+import { serachMovieDetails } from "../../service/movieApi";
 
-function useMovie() {
+function useMovie(id) {
     const [movie, setMovie] = useState(null);
-    const [Loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
 
     useEffect(() => {
@@ -33,7 +33,7 @@ function useMovie() {
 
     return {
         movie,
-        Loading,
+        loading,
         error
     };
 }

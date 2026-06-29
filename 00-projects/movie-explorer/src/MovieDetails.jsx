@@ -4,9 +4,9 @@ import useMovie from "./hooks/useMovie";
 function MovieDetails() {
     const { id } = useParams();
 
-    const { movie, Loading, error } = useMovie();
+    const { movie, loading, error } = useMovie(id);
 
-    if (Loading) {
+    if (loading) {
         return (
             <h1 className="text-center text-2xl">
                 Loading Movie Details...

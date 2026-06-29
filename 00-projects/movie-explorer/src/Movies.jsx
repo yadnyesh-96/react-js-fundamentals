@@ -1,10 +1,7 @@
-import Card from "./Card";
 
 function Movies() {
     return (
-        <>
-           
-        </>
+        <h1>Movies</h1>
     )
 }
 
