@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+import { serachMovieDetails } from "../service/movieApi";
 
 function useMovie() {
     const [movie, setMovie] = useState(null);
