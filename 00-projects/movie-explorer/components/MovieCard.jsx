@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Heart, Star } from "lucide-react";
+import useFavorites from "../src/hooks/useFavorites";
 
 function MovieCard({
     movie,
@@ -7,18 +8,15 @@ function MovieCard({
     showRemove = false,
     onRemove,
 }) {
+
+
+    const { addFavorite, isFavorite } = useFavorites();
+
     function handleFavorite(e) {
         e.preventDefault();
 
-        const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-
-        const alreadyExists = favorites.some(
-            (fav) => fav.imdbID === movie.imdbID
-        );
-
-        if (!alreadyExists) {
-            favorites.push(movie);
-            localStorage.setItem("favorites", JSON.stringify(favorites));
+        if (!isFavorite(movie)) {
+            addFavorite(movie);
             alert("Added to Favorites");
         } else {
             alert("Movie already in Favorites");

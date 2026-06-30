@@ -3,7 +3,7 @@ import MovieCard from "../components/MovieCard";
 import useFavorites from "./hooks/useFavorites";
 
 function Favorite() {
-    const {favorites, handleRemoveMov} = useFavorites();
+    const {favorites, removeFavorite} = useFavorites();
 
     return (
         <>
@@ -16,7 +16,7 @@ function Favorite() {
                                 movie={movie}
                                 showFavorite={false}
                                 showRemove={true}
-                                onRemove={handleRemoveMov} />
+                                onRemove={removeFavorite} />
                         </div>
                     ))}
                 </div>
