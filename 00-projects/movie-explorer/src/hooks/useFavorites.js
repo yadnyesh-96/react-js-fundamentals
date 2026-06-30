@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 function useFavorites() {
 
-    const [favorites, setFavorites] = useState([])
+    const [favorites, setFavorites]= useState([])
 
     useEffect(() => {
         const savedFavorites =

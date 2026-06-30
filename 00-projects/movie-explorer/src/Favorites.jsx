@@ -3,7 +3,7 @@ import MovieCard from "../components/MovieCard";
 import useFavorites from "./hooks/useFavorites";
 
 function Favorite() {
-    const [favorites, handleRemoveMov] = useFavorites([]);
+    const {favorites, handleRemoveMov} = useFavorites();
 
     return (
         <>
