@@ -1,27 +1,10 @@
-import { useEffect, useState } from "react";
+
 import MovieCard from "../components/MovieCard";
+import useFavorites from "./hooks/useFavorites";
 
 function Favorite() {
-    const [favorites, setFavorites] = useState([]);
+    const [favorites, handleRemoveMov] = useFavorites([]);
 
-    useEffect(() => {
-        const savedFavorites =
-            JSON.parse(
-                localStorage.getItem("favorites")
-            ) || [];
-
-        setFavorites(savedFavorites);
-    }, []);
-
-    function handleRemoveMov(movieId) {
-        const updatedFavorites = favorites.filter(
-            movie => movie.imdbID !== movieId
-        );
-
-        setFavorites(updatedFavorites);
-
-        localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
-    }
     return (
         <>
             <div className="p-6">
