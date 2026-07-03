@@ -8,7 +8,7 @@ function MovieCard({
     showRemove = false,
     onRemove,
 }) {
-
+ 
 
     const { addFavorite, isFavorite } = useFavorites();
 
