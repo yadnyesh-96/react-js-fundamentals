@@ -8,7 +8,7 @@ function Input() {
         valueChange,
         reset } = useInput();
 
-    return (
+    return ( 
         <div className="h-screen flex items-center justify-center">
 
             <div className="border w-60 flex flex-col items-center justify-center p-4 px-6">
