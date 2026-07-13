@@ -7,6 +7,11 @@ function Notes() {
 
 
     function saveNote() {
+
+        if (note.trim() === "") {
+            return;
+        }
+        
         const updatesNotes = [...notes, note]
         setNotes(updatesNotes);
         localStorage.setItem("notes", JSON.stringify(updatesNotes));
