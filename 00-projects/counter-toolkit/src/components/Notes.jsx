@@ -3,16 +3,21 @@ import { useEffect, useState } from "react";
 function Notes() {
 
     const [note, setNote] = useState("");
-    const [savedNote, setSavedNote] = useState("");
+    const [notes, setNotes] = useState([]);
+
 
     function saveNote() {
-        localStorage.setItem("note", note)
+        const updatesNotes = [...notes, note]
+        setNotes(updatesNotes);
+        localStorage.setItem("notes", JSON.stringify(updatesNotes));
+        setNote("");
     }
 
     useEffect(() => {
-        const data = localStorage.getItem("note");
-        setSavedNote(data);
-    })
+
+        const data = JSON.parse(localStorage.getItem("notes")) || [];
+        setNotes(data);
+    }, [])
 
     return (
         <div className=" flex items-center justify-center p-60">
@@ -46,12 +51,19 @@ function Notes() {
 
                 <h2 className="w-full text-start my-1 font-semibold text-sm text-slate-500">Saved Notes :</h2>
 
-                <h6 className="w-full border border-slate-200 mb-2"></h6>
+                <h6 className="w-full border border-slate-200"></h6>
 
 
-                <p className="w-full text-start">
-                    {savedNote}
-                </p>
+                <ul className="w-full text-start list-disc list-inside  mt-2 ">
+                    {notes.map((item, index) => (
+                        <li
+                            key={index}
+                            className="border-b border-b-1 border-slate-200 mb-1"
+                        >
+                            {item}
+                        </li>
+                    ))}
+                </ul>
                 <h6 className="w-full border border-slate-200 mb-2"></h6>
             </div>
         </div>
