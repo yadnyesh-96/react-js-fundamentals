@@ -1,7 +1,7 @@
 
 function Notes() {
     return (
-        <div className="min-h-screen flex items-center justify-center p-60">
+        <div className=" flex items-center justify-center p-60">
             <div className="w-64 flex flex-col items-center justify-center border border-slate-200 bg-slate-100 p-6 rounded">
                 <h1 className="font-medium border-b border-slate-500 pb-1 w-36 text-center mb-2">Notes Keeper</h1>
 
