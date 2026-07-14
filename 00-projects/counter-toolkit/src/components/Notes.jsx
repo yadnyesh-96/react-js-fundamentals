@@ -1,28 +1,34 @@
 import { useEffect, useState } from "react";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 function Notes() {
 
-    const [note, setNote] = useState("");
-    const [notes, setNotes] = useState([]);
+    const { note,
+        setNote,
+        saveNotes,
+        notes } = useLocalStorage();
+
+    // const [note, setNote] = useState("");
+    // const [notes, setNotes] = useState([]);
 
 
-    function saveNote() {
+    // function saveNote() {
 
-        if (note.trim() === "") {
-            return;
-        }
+    //     if (note.trim() === "") {
+    //         return;
+    //     }
 
-        const updatesNotes = [...notes, note]
-        setNotes(updatesNotes);
-        localStorage.setItem("notes", JSON.stringify(updatesNotes));
-        setNote("");
-    }
+    //     const updatesNotes = [...notes, note]
+    //     setNotes(updatesNotes);
+    //     localStorage.setItem("notes", JSON.stringify(updatesNotes));
+    //     setNote("");
+    // }
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        const data = JSON.parse(localStorage.getItem("notes")) || [];
-        setNotes(data);
-    }, [])
+    //     const data = JSON.parse(localStorage.getItem("notes")) || [];
+    //     setNotes(data);
+    // }, [])
 
     return (
         <div className=" flex items-center justify-center p-20">
@@ -41,7 +47,7 @@ function Notes() {
                 <div className="w-full mt-3 flex items-center justify-between">
                     <button
                         className="px-6 rounded  font-medium bg-slate-700 text-white border "
-                        onClick={saveNote}
+                        onClick={saveNotes}
                     >
                         Save</button>
 
