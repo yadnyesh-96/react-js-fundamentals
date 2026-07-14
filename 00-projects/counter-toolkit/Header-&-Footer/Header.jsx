@@ -7,25 +7,25 @@ function Header() {
                 <h1 className="text-2xl font-bold">Counter - ToolKit</h1>
 
                 <nav>
-                    <ul className="flex gap-8">
-                        <li>
-                            <Link to="/" className="hover:text-gray-500">
+                    <ul className="flex gap-8 font-semibold text-slate-600">
+                        <li className="m-5 border px-6">
+                            <Link to="/">
                                 Home
                             </Link>
                         </li>
-                        <li>
-                            <Link to="/input" className="hover:text-gray-500">
+                        <li className="m-5 border px-6">
+                            <Link to="/input" >
                                 Input
                             </Link>
                         </li>
-                        <li>
-                            <Link to="/notes" className="hover:text-gray-500">
+                        <li className="m-5 border px-6">
+                            <Link to="/notes">
                                 Notes
                             </Link>
                         </li>
                     </ul>
                 </nav>
-                
+
             </div>
         </header>
     );
