@@ -7,6 +7,8 @@ function Input() {
     const { value,
         valueChange,
         reset } = useInput();
+    
+    
 
     return ( 
         <div className="h-screen flex items-center justify-center">
