@@ -23,6 +23,11 @@ function Header() {
                                 Notes
                             </Link>
                         </li>
+                        <li className="m-5 border px-6">
+                            <Link to="/register">
+                                Register
+                            </Link>
+                        </li>
                     </ul>
                 </nav>
 
