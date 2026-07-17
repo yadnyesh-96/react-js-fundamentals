@@ -8,26 +8,31 @@ function Header() {
 
                 <nav>
                     <ul className="flex gap-8 font-semibold text-slate-600">
-                        <li className="m-5 border px-6">
-                            <Link to="/">
+
+                        <Link to="/">
+                            <li className="m-5 border px-6">
                                 Home
-                            </Link>
-                        </li>
-                        <li className="m-5 border px-6">
-                            <Link to="/input" >
+                            </li>
+                        </Link>
+
+                        <Link to="/input" >
+                            <li className="m-5 border px-6">
                                 Input
-                            </Link>
-                        </li>
-                        <li className="m-5 border px-6">
-                            <Link to="/notes">
+                            </li>
+                        </Link>
+
+                        <Link to="/notes">
+                            <li className="m-5 border px-6">
                                 Notes
-                            </Link>
-                        </li>
-                        <li className="m-5 border px-6">
-                            <Link to="/register">
+                            </li>
+                        </Link>
+
+                        <Link to="/register">
+                            <li className="m-5 border px-6">
                                 Register
-                            </Link>
-                        </li>
+                            </li>
+                        </Link>
+                        
                     </ul>
                 </nav>
 
