@@ -10,6 +10,11 @@ function RegistrationForm() {
     });
 
 
+    function handleChange(){
+
+    }
+
+    
     return (
         <div className="p-20">
             <div className="border rounded-md border-slate-200 bg-slate-100 mx-80 p-10 flex flex-col items-center justify-center">
@@ -26,6 +31,7 @@ function RegistrationForm() {
                             type="text"
                             name="name"
                             value={formData.name}
+                            onChange={handleChange}
                             placeholder="Enter Name" />
                     </div>
 
@@ -37,6 +43,7 @@ function RegistrationForm() {
                             type="email"
                             name="email"
                             value={formData.email}
+                            onChange={handleChange}
                             placeholder="Enter Email" />
                     </div>
 
@@ -48,6 +55,7 @@ function RegistrationForm() {
                             type="password"
                             name="password"
                             value={formData.password}
+                            onChange={handleChange}
                             placeholder="Enter password" />
                     </div>
 
