@@ -10,8 +10,15 @@ function RegistrationForm() {
     });
 
 
-    function handleChange(){
+    function handleChange(e){
+        
+        const name = e.target.name;
+        const value = e.target.value;
 
+        setFormData({
+            ...formData,
+            [name]:value
+        })
     }
 
     
