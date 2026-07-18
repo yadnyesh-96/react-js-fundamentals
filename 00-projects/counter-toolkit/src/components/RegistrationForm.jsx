@@ -10,25 +10,36 @@ function RegistrationForm() {
     });
 
 
-    function handleChange(e){
-        
-        const name = e.target.name;
-        const value = e.target.value;
+    function handleChange(e) {
+
+        // const name = e.target.name;
+        // const value = e.target.value;
+
+        const { name, value } = e.target;
 
         setFormData({
             ...formData,
-            [name]:value
+            [name]: value
         })
     }
 
-    
+    function handleSubmit(e) {
+        e.preventDefault();
+
+        console.log("Form Submitted");
+        console.log(formData);
+    }
+
     return (
         <div className="p-20">
             <div className="border rounded-md border-slate-200 bg-slate-100 mx-80 p-10 flex flex-col items-center justify-center">
 
                 <h1 className="w-60 text-center font-bold text-2xl text-slate-500 border-b-2 pb-2 border-slate-300 ">Registration Form</h1>
 
-                <form className="w-full mt-5 border p-5">
+                <form
+                    onSubmit={handleSubmit}
+                    className="w-full mt-5 border p-5"
+                >
 
                     <div className="w-full p-3">
                         <label className="font-semibold text-slate-500" htmlFor="name">Name: </label>
