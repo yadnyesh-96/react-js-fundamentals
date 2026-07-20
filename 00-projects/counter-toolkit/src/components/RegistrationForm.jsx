@@ -28,7 +28,22 @@ function RegistrationForm() {
 
         console.log("Form Submitted");
         console.log(formData);
+
+        const newErrors = {}
+
+        if (formData.name === "") {
+            newErrors.name = "Name is required";
+        }
+
+        setError(newErrors)
     }
+
+
+    const [error, setError] = useState({
+        name: "",
+        email: "",
+        password: ""
+    })
 
     return (
         <div className="p-20">
