@@ -35,6 +35,14 @@ function RegistrationForm() {
             newErrors.name = "Name is required";
         }
 
+        if (formData.email === "") {
+            newErrors.email = "Email is required";
+        }
+
+        if (formData.password === "") {
+            newErrors.password = "Password is required";
+        }
+
         setError(newErrors)
     }
 
@@ -66,6 +74,9 @@ function RegistrationForm() {
                             value={formData.name}
                             onChange={handleChange}
                             placeholder="Enter Name" />
+                        {
+                            error.name && <p className="text-red-500">{error.name}</p>
+                        }
                     </div>
 
                     <div className="w-full p-3">
@@ -78,6 +89,9 @@ function RegistrationForm() {
                             value={formData.email}
                             onChange={handleChange}
                             placeholder="Enter Email" />
+                        {
+                            error.email && <p className="text-red-500">{error.email}</p>
+                        }
                     </div>
 
                     <div className="w-full p-3">
@@ -90,6 +104,9 @@ function RegistrationForm() {
                             value={formData.password}
                             onChange={handleChange}
                             placeholder="Enter password" />
+                        {
+                            error.password && <p className="text-red-500">{error.password}</p>
+                        }
                     </div>
 
                     <div className="w-full p-3">
