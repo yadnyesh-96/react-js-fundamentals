@@ -32,7 +32,13 @@ function Header() {
                                 Register
                             </li>
                         </Link>
-                        
+
+                        <Link to="/focusInput">
+                            <li className="m-5 border px-6">
+                                Focus-Input
+                            </li>
+                        </Link>
+
                     </ul>
                 </nav>
 
